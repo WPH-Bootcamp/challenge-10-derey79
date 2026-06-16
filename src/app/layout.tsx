@@ -1,14 +1,12 @@
 'use client';
 
 // import type { Metadata } from 'next';
-// import AuthLayout from './(auth)/login/layout';
-// import { Nunito, Geist, Geist_Mono } from 'next/font/google';
-import { Providers } from './providers';
 import { Nunito } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
-import { Navbar } from '@/components/shared/navbar';
-
+import Providers from './providers';
+import { Navbar } from '@/components/shared/navbar/Navbar';
+import { Footer } from '@/components/shared/footer/Footer';
 // Configure the Nunito font
 const nunito = Nunito({
   subsets: ['latin'],
@@ -30,14 +28,12 @@ export default function RootLayout({
   return (
     <html lang='en' className={cn('h-full', 'antialiased', nunito.variable)}>
       <body className='min-h-full flex flex-col font-sans'>
-        {/* <body className={`${nunito.variable} font-sans antialiased`}> */}
-        {/* <AuthLayout> */}
-        {/* <main className='custom-container mx-auto w-full  flex-1 px-4'> */}
         <Providers>
           <Navbar />
 
           <main className='mx-auto w-full flex-1 px-4'>{children}</main>
-          {/* </AuthLayout> */}
+
+          <Footer />
         </Providers>
       </body>
     </html>
